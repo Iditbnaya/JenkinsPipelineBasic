@@ -1,0 +1,26 @@
+pipeline{
+agent any
+stages {    
+    stage(Q1) {
+    steps{
+	       bat 'echo idit >> idit.txt'
+	    }       
+	}
+ stage(Q2) {
+        steps{
+           bat 'type idit.txt'
+	    } 
+}
+    stage(Q3) {
+        steps{
+       bat 'fsutil volume diskfree c:'
+	    }       
+	}
+	    stage(Q4) {
+        steps{
+       bat 'move idit.txt c:\\temp\\idit.txt'
+	    }       
+	}
+   
+}
+}
